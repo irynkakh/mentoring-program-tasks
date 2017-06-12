@@ -1,7 +1,11 @@
-package com.company;
+package com.company.core;
+
+import com.company.utils.Calculator;
+import com.company.utils.ExtractValuesFromString;
+import com.company.utils.Reader;
+import com.company.utils.SortingOfArray;
 
 import java.io.IOException;
-
 
 public class Menu {
     Reader rd = new Reader();
@@ -31,15 +35,6 @@ public class Menu {
     }
 
     public void execCalculator() throws IOException {
-
-//        String expr = rd.readData();
-//        String[] val =exval.extractValues(expr);
-//        if (exval.presenceOperator(expr) == true && exval.checkIfNumbers(val)==true)
-//        {
-//            Calculator calc = new Calculator(exval.getNumber1(), exval.getNumber2());
-//            calc.Calculation(exval.getOperation());
-
-//        }
         String number1 = rd.readNumber();
         String operator = rd.readOperator();
         String number2 = rd.readNumber();
@@ -70,6 +65,5 @@ public class Menu {
         System.out.println("Exit...");
         System.exit(0);
     }
-
 
 }

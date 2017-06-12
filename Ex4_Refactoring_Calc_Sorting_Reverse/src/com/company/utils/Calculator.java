@@ -1,4 +1,4 @@
-package com.company;
+package com.company.utils;
 
 public class Calculator {
 
@@ -6,7 +6,7 @@ public class Calculator {
     private double b;
     private char sign;
 
-    Calculator(double a, double b) {
+    public Calculator(double a, double b) {
         this.a = a;
         this.b = b;
     }
