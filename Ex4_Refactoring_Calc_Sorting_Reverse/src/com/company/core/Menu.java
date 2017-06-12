@@ -1,5 +1,7 @@
 package com.company.core;
 
+import com.company.dto.CalculatorValues;
+import com.company.dto.MenuOptions;
 import com.company.utils.Calculator;
 import com.company.utils.ExtractValuesFromString;
 import com.company.utils.Reader;
@@ -14,7 +16,7 @@ public class Menu {
     public void showMenu() throws IOException, InterruptedException {
         System.out.println("Select an option that you want and press ENTER: 1) - Calculator; 2) - Sorting of array; 3) Exit ");
         Reader rd = new Reader();
-        char menu = rd.reader();
+        char menu = rd.readChar();
         switch (menu) {
             case '1':
                 execCalculator();
@@ -42,7 +44,7 @@ public class Menu {
 
         if (exval.checkIfNumber(number1) && exval.presenceOperator(operator) && exval.checkIfNumber(number2)) {
             Calculator calc = new Calculator((double) exval.getNumberFromStr(number1), (double) exval.getNumberFromStr(number2));
-            calc.Calculation(exval.getOperation());
+            calc.calculation(exval.getOperation());
 
         }
     }
@@ -66,4 +68,50 @@ public class Menu {
         System.exit(0);
     }
 
+    public static MenuOptions getOption() throws InterruptedException {
+        MenuOptions menuOptions;
+        System.out.println("Select an option that you want and press ENTER: \n1) Calculator; \n2) Sorting of array; " +
+                "\n3) Reversing of string \n4) Exit ");
+        Reader rd = new Reader();
+        char menu = rd.readChar();
+        switch (menu) {
+            case '1':
+                menuOptions = MenuOptions.CALCULATION;
+                break;
+            case '2':
+                menuOptions = MenuOptions.SORTING;
+                break;
+            case '3':
+                menuOptions = MenuOptions.REVERSING;
+                break;
+            case '4':
+                menuOptions = MenuOptions.EXITING;
+                break;
+            default: {
+                System.out.println("Menu doesn't include this option. Please try again");
+                Thread.sleep(1000);
+                menuOptions = null;
+            }
+        }
+
+        return menuOptions;
+    }
+
+    public static CalculatorValues getCalculationValues() {
+        CalculatorValues calculatorValues = new CalculatorValues();
+
+        String number1 = Reader.readNumber();
+        String operator = Reader.readOperator();
+        String number2 = Reader.readNumber();
+
+        ExtractValuesFromString exval = new ExtractValuesFromString();
+
+        if (exval.checkIfNumber(number1) && exval.presenceOperator(operator) && exval.checkIfNumber(number2)) {
+            calculatorValues.setNumber1(exval.getNumberFromStr(number1));
+            calculatorValues.setNumber2(exval.getNumberFromStr(number2));
+            calculatorValues.setCharacter(exval.getOperation());
+        }
+
+        return calculatorValues;
+    }
 }

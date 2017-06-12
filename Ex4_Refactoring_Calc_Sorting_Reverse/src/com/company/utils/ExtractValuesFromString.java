@@ -103,7 +103,7 @@ public class ExtractValuesFromString {
 
     }
 
-    public Object getNumberFromStr(String str) {
+    public Double getNumberFromStr(String str) {
         double number = 0;
         try {
             number = Double.parseDouble(str);

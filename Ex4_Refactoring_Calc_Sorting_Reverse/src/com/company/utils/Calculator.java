@@ -1,5 +1,7 @@
 package com.company.utils;
 
+import com.company.dto.CalculatorValues;
+
 public class Calculator {
 
     private double a;
@@ -9,6 +11,16 @@ public class Calculator {
     public Calculator(double a, double b) {
         this.a = a;
         this.b = b;
+    }
+
+    public Calculator(CalculatorValues calculatorValues) {
+        this.a = calculatorValues.getNumber1();
+        this.b = calculatorValues.getNumber2();
+        this.sign = calculatorValues.getCharacter();
+    }
+
+    public void calculate() {
+        calculation(sign);
     }
 
     private double addition(double a, double b) {
@@ -31,8 +43,7 @@ public class Calculator {
 
     }
 
-    public void Calculation(char sign) {
-
+    public void calculation(char sign) {
         switch (sign) {
             case '+':
                 System.out.println(a + "+" + b + " = " + addition(a, b));
