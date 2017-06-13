@@ -14,7 +14,7 @@ public class Menu {
     ExtractValuesFromString exval = new ExtractValuesFromString();
 
     public void showMenu() throws IOException, InterruptedException {
-        System.out.println("Select an option that you want and press ENTER: 1) - Calculator; 2) - Sorting of array; 3) Exit ");
+        System.out.println("Select an option that you want and press ENTER: 1) - Calculator 2) - Sorting of array 3) Exit ");
         Reader rd = new Reader();
         char menu = rd.readChar();
         switch (menu) {
@@ -113,5 +113,11 @@ public class Menu {
         }
 
         return calculatorValues;
+    }
+
+    public static String getStringValue()
+    {
+        String str = Reader.readLine();
+        return str;
     }
 }

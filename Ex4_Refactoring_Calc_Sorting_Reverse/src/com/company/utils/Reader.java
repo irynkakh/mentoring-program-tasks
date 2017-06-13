@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Reader {
-    private static String readLine() {
+    public static String readLine() {
         BufferedReader bufReader = new BufferedReader(new InputStreamReader(System.in));
         String line = null;
         do {
