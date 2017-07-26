@@ -1,10 +1,18 @@
 package com.company.dto;
 
 public enum MenuOptions {
-    CALCULATION,
-    SORTING,
-    REVERSING,
-    EXITING
+    CALCULATION(1),
+    SORTING(2),
+    REVERSING(3),
+    EXITING(4);
 
-    //TODO Implement Enum parameters
+    private Integer value;
+
+    MenuOptions(Integer value) {
+        this.value = value;
+    }
+
+    public Integer getNumber() {
+        return value;
+    }
 }

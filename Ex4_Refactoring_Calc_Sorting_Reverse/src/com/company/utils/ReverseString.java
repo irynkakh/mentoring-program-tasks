@@ -1,7 +1,5 @@
 package com.company.utils;
 
-import java.lang.Character;
-
 public class ReverseString {
 
     public static void reversing(String str) {

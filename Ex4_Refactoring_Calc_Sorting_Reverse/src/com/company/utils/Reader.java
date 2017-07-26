@@ -1,5 +1,7 @@
 package com.company.utils;
 
+import com.company.dto.Operations;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,6 +22,7 @@ public class Reader {
     }
 
     public static char readChar() {
+
         return readLine().charAt(0);
     }
 
@@ -28,16 +31,35 @@ public class Reader {
         return readLine();
     }
 
-    public static String readNumber() {
+
+    public static Double readNumber() {
         System.out.println("Enter number ");
-        //TODO: rewrite. Method should return Double. Should be only valid value.
-        return readLine();
+        String str = readLine();
+        Double num = null;
+        try {
+            num = Double.parseDouble(str);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Input is not a number! Please, try again!");
+        }
+        return num;
     }
 
-    public static String readOperator() {
+    public static Operations readOperator() {
         System.out.println("Enter operation ");
-        //TODO: rewrite. Method should return Enum. Should be only valid value.
-        return readLine();
+        Character str = readLine().charAt(0);
+        Operations operations = null;
+        if (str == '+')
+            operations = Operations.ADDITION;
+        else if (str == '-')
+            operations = Operations.SUBSTRACTION;
+        else if (str == '*')
+            operations = Operations.MULTIPLICATION;
+        else if (str == '/')
+            operations = Operations.DIVISION;
+        else System.out.println("Such operation is not implemented!");
+
+        return operations;
     }
 
 }
