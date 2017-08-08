@@ -1,12 +1,13 @@
 package com.company.utils;
 
 import com.company.dto.CalculatorValues;
+import com.company.dto.Operations;
 
 public class Calculator {
 
     private double a;
     private double b;
-    private char sign;
+    private Operations sign;
 
     public Calculator(double a, double b) {
         this.a = a;
@@ -43,18 +44,18 @@ public class Calculator {
 
     }
 
-    public void calculation(char sign) {
+    public void calculation(Operations sign) {
         switch (sign) {
-            case '+':
+            case ADDITION:
                 System.out.println(a + "+" + b + " = " + addition(a, b));
                 break;
-            case '-':
+            case SUBSTRACTION:
                 System.out.println(a + "-" + b + " = " + subtraction(a, b));
                 break;
-            case '*':
+            case MULTIPLICATION:
                 System.out.println(a + "*" + b + " = " + multiplication(a, b));
                 break;
-            case '/':
+            case DIVISION:
                 System.out.println(a + "/" + b + " = " + division(a, b));
                 break;
             default:

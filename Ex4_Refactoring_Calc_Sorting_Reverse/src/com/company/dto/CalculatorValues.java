@@ -3,7 +3,7 @@ package com.company.dto;
 public class CalculatorValues {
 
     private Double number1;
-    private Character character;
+    private Operations character;
     private Double number2;
 
     public Double getNumber1() {
@@ -14,11 +14,11 @@ public class CalculatorValues {
         this.number1 = number1;
     }
 
-    public Character getCharacter() {
+    public Operations getCharacter() {
         return character;
     }
 
-    public void setCharacter(Character character) {
+    public void setCharacter(Operations character) {
         this.character = character;
     }
 
